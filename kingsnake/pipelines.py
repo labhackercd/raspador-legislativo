@@ -57,6 +57,9 @@ class DeputadoMongoDBPipeline(ItemSpecificPipelineMixin, MongoDBPipeline):
         super(DeputadoMongoDBPipeline, self).configure()
         self.config = dict(self.config)
         self.config['collection'] = 'deputados'
+        self.config['unique_key'] = [
+            ('ide_cadastro', ASCENDING),
+        ]
 
 
 class TeorDiscursoPipeline(ItemSpecificPipelineMixin, FilesPipeline):
